@@ -1,5 +1,5 @@
 #include "main.h"
-#include <unistd>
+#include <unistd.h>
 /**
  * _putchar - puts one charater
  * @c: the charter to print
@@ -8,7 +8,7 @@
  */
 int _putchar(char c)
 {
-	retrun (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**

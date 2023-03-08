@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * _printf - produce output according to format
  * @format: the string to print
@@ -12,4 +14,7 @@ int _printf(const char *format, ...)
 		_putchar(format[i]);
 		i++;
 	}
+	_putchar('\n');
+
+	return (i);
 }
