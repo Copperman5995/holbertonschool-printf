@@ -4,6 +4,9 @@
 
 
 int _putchar(char c);
+void _puts(char *str);
+int _printf(const char *format, ...);
+int print_string(
 
 
 
