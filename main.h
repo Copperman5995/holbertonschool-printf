@@ -9,7 +9,7 @@ typdef struct convert
 {
 	char *letter;
 	int (*f)(va_list);
-};
+}covert_t;
 
 
 int _putchar(char c);
