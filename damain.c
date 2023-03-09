@@ -7,6 +7,7 @@
 
 int main(void)
 {
-	_printf("hello");
+	char *name = "Ben & Cooper";
+	_printf("hello %s", name);
 	return (0);
 }
