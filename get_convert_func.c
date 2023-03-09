@@ -5,7 +5,7 @@
  * Return: the right function to be used
  */
 
-int (*get_convert_func(char *s))
+int (*get_convert_func(const char *s))(va_list)
 {
 	convert_t converter[] = {
 		{"c", print_char},

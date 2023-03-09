@@ -16,14 +16,14 @@ typedef struct convert
 	int (*f)(va_list);
 } convert_t;
 
-
+int (*get_convert_func(const char *s))(va_list);
 int _putchar(char c);
 void _puts(char *str);
 int _printf(const char *format, ...);
 int _strlen(char *str);
 
 // the difernt print functions//
-int print_string(va_list);
+int print_string(va_list s);
 int print_char(va_list);
 int print_int(va_list);
 
