@@ -27,3 +27,17 @@ void _puts(char *str)
 	}
 	_putchar('\n');
 }
+/**
+ * _strlen - find lenght of string
+ * @str: the string to be measured
+ * Return: the length of the string
+ */
+int _strlen(char *str)
+{
+	int len = 0;
+
+	while (*str++)
+		len++;
+
+	return (len);
+}
