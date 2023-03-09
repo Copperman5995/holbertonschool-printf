@@ -16,5 +16,16 @@ int (*get_convert_func(char *s))
 	};
 	int i = 0;
 
+	if(_strlen(s) != 1)
+		return (NULL);
+
+	while (converter[i].convert != NULL && converter[i].convert[0] != s[0])
+	{
+		i++;
+	}
+
+	return (converter[i].f);
+}
+
 
 
