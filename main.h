@@ -1,15 +1,20 @@
 #ifndef MAIN_H
 #define MAIN_H
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
 /**
  * struct convert - looks for the thing after the %
  * @letter: is the letter that is passed
  * @f: is the function that will be passed
  */
-typdef struct convert
+typedef struct convert
 {
 	char *letter;
 	int (*f)(va_list);
-}covert_t;
+} convert_t;
 
 
 int _putchar(char c);
