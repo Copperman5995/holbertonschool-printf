@@ -73,17 +73,3 @@ int print_int(va_list n)
 
 	return (counter);
 }
-
-/**
- * print_dec - pritns a decimal int
- * @d: the decimala to be printed
- * Return: 1 on succes
- */
-/**int print_dec(va_list d)
-{
-
-	return (1);
-}
-*/
-
-
