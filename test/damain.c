@@ -27,5 +27,9 @@ int main(void)
 	len2 = printf("Percent:[%%]\n");
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
+	len = _printf("Character: %c - String: %s - Percent: 100%% [%i]\n", 'C', "This is a string", len);
+	len2 = printf("Character: %c - String: %s - Percent: 100%% [%i]\n", 'C', "This is a string", len2);
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
 	return (0);
 }
