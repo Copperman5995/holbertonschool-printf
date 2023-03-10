@@ -19,10 +19,9 @@ int (*get_convert_func(const char *s))(va_list)
 	};
 	int i = 0;
 
-	for (; converter[i].letter != NULL ; i++)
+	while (converter[i].letter != NULL && converter[i].letter[0] != s[0])
 	{
-		if (*(converter[i].letter) == *s)
-			break;
+		i++;
 	}
 	return (converter[i].f);
 }
