@@ -31,5 +31,25 @@ int main(void)
 	len2 = printf("Character: %c - String: %s - Percent: 100%% [%i]\n", 'C', "This is a string", len2);
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
+	len = _printf("Char: %c\n", 'C');
+	len2 = printf("Char: %c\n", 'C');
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
+	len = _printf("Str: %s\n", "Hello");
+	len2 = printf("Str: %s\n", "Hello");
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
+	len = _printf("Int: %i\n", 123);
+	len2 = printf("Int: %i\n", 123);
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
+	len = _printf("Dec: %d\n", 456);
+	len2 = printf("Dec: %d\n", 456);
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
+	len = _printf("%i\n", 1);
+	len2 = printf("%i\n", 1);
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
 	return (0);
 }
