@@ -5,11 +5,11 @@
 
 /**
  * print_char - print the char passed in
- * va_list: the list to pull from
+ * @c: the list to pull from
  * Return: 1 on success
  */
 int print_char(va_list c)
-{	
+{
 	char character = (char)va_arg(c, int);
 
 	_putchar(character);
@@ -32,8 +32,8 @@ int print_string(va_list s)
 	return (1);
 }
 /**
- * print_string - print the string passed in
- * va_list: the list to pull from
+ * print_int - print the int passed in
+ * @n: the list to pull from
  * Return: 1 on success
  */
 int print_int(va_list n)
