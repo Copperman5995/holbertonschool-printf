@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 	int (*f)(va_list);
 	unsigned int i = 0, counter = 0;
 
-	if (format == NULL || format[0] == '\0')
+	if (format == NULL)
 		return (-1);
 
 	va_start(ap, format);
