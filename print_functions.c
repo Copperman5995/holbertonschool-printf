@@ -73,17 +73,42 @@ int print_int(va_list n)
 
 	return (counter);
 }
-
 /**
- * print_dec - pritns a decimal int
- * @d: the decimala to be printed
- * Return: 1 on succes
+ * print_dec - print the dec passed in
+ * @d: the list to pull from
+ * Return: number of chars printed
  */
-/**int print_dec(va_list d)
+int print_dec(va_list d)
 {
+	int finalint[10];
+	int i = 1, j = 1000000000, k, sum = 0, counter = 0;
 
-	return (1);
+	k = va_arg(d, int);
+
+	if (k < 0)
+	{
+		k = k * -1;
+		_putchar('-');
+		counter++;
+	}
+	finalint[0] = k / j;
+
+	while (i < 10)
+	{
+		j = j / 10;
+		finalint[i] = (k / j) % 10;
+		i++;
+	}
+	i = 0;
+	while (i < 10)
+	{
+		sum = sum + finalint[i];
+		if (sum != 0 || j == 9)
+		{
+			_putchar('0' + finalint[i]);
+			counter++;
+		}
+		i++;
+	}
+	return (counter);
 }
-*/
-
-
