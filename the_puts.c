@@ -39,5 +39,3 @@ int _strlen(char *str)
 
 	return (len);
 }
-
-
