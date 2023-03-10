@@ -10,7 +10,6 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-
 /**
  * _puts - print string + new line to "stdout"
  * @str: strin value

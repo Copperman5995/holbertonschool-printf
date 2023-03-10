@@ -1,11 +1,13 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * get_convert_func - looks for the letter
  * @s: the thing that will be checked for the letter
  * Return: the right function to be used
  */
-
 int (*get_convert_func(const char *s))(va_list)
 {
 	convert_t converter[] = {
@@ -17,10 +19,7 @@ int (*get_convert_func(const char *s))(va_list)
 	};
 	int i = 0;
 
-	if(_strlen(s) != 1)
-		return (NULL);
-
-	while (converter[i].convert != NULL && converter[i].convert[0] != s[0])
+	while (converter[i].letter != NULL && converter[i].letter[0] != s[0])
 	{
 		i++;
 	}
@@ -34,30 +33,44 @@ int (*get_convert_func(const char *s))(va_list)
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
-
-	va_list valist;
+	va_list ap;
 	int (*f)(va_list);
-	va_start(valist, format);
+	unsigned int i = 0, counter = 0;
 
-	while (format[i] != '\0')
+	if (format == NULL)
+		return (-1);
+
+	va_start(ap, format);
+	while (format && format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] != '%')
 		{
+			_putchar(format[i]);
+			counter++;
 			i++;
-			f = get_convert_func(format[i]);
-			/*if (format[i] == 's')
-			{
-				print_string(valist);
-			}*/
+			continue;
 		}
 		else
 		{
-			_putchar(format[i]);
+			if (format[i + 1] == '%')
+			{
+				_putchar('%');
+				counter++;
+				i += 2;
+				continue;
+			}
+			else
+			{
+				f = get_convert_func(&format[i + 1]);
+				if (f == NULL)
+					return (-1);
+				i += 2;
+				counter += f(ap);
+				continue;
+			}
 		}
 		i++;
 	}
-	_putchar('\n');
-	va_end(valist);
-	return (i);
+	va_end(ap);
+	return (counter);
 }
