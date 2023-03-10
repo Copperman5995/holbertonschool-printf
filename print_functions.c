@@ -36,7 +36,11 @@ int print_string(va_list s)
  * @n: the list to pull from
  * Return: 1 on success
  */
-int print_int(va_list n)
+/**int print_int(va_list n)
 {
+
 	return (1);
 }
+*/
+
+
