@@ -30,7 +30,7 @@ int print_string(va_list s)
 		str = "(null)";
 	}
 	_puts(str);
-	return (len - 1);
+	return (len);
 }
 /**
  * print_int - print the int passed in
