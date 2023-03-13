@@ -13,7 +13,7 @@
 typedef struct convert
 {
 	char *letter;
-	int (*f)(va_list);
+	int (*f)(va_list ap);
 } convert_t;
 
 int _putchar(char c);
