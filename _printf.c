@@ -13,7 +13,7 @@ int (*get_convert_func(const char *s))(va_list)
 		{"c", print_char},
 		{"s", print_string},
 		{"i", print_int},
-		{"d", print_dec}
+		{"d", print_dec},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -24,7 +24,7 @@ int (*get_convert_func(const char *s))(va_list)
 	return (converter[i].f);
 }
 /**
- * _printf - pritns things
+ * _printf - prints outputaccording to format
  * @format: the string to print
  * Return: the number of chars printed
  */
@@ -33,10 +33,10 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int (*f)(va_list);
 	unsigned int i = 0, counter = 0;
-	int bettyabword = 0;
 
 	if (format == NULL)
 		return (-1);
+
 	va_start(ap, format);
 	while (format && format[i])
 	{
@@ -58,9 +58,11 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				bettyabword = get_convert_func(format[i + 1], ap);
-				counter += printother(bettyabword, format[i], format[i + 1]);
+				f = get_convert_func(&format[i + 1]);
+				if (f == NULL)
+					return (-1);
 				i += 2;
+				counter += f(ap);
 				continue;
 			}
 		}
