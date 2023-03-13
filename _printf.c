@@ -23,7 +23,6 @@ int (*get_convert_func(const char *s))(va_list)
 	{
 		i++;
 	}
-
 	return (converter[i].f);
 }
 /**
@@ -74,3 +73,4 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (counter);
 }
+

@@ -23,13 +23,14 @@ int print_char(va_list c)
 int print_string(va_list s)
 {
 	char *str = va_arg(s, char *);
+	int len = _strlen(str);
 
 	if (str == NULL)
 	{
 		str = "(null)";
 	}
 	_puts(str);
-	return (1);
+	return (len);
 }
 /**
  * print_int - print the int passed in
