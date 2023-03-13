@@ -10,7 +10,6 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-
 /**
  * _puts - print string + new line to "stdout"
  * @str: strin value
@@ -25,5 +24,19 @@ void _puts(char *str)
 		_putchar(str[i]);
 		i++;
 	}
-	_putchar('\n');
 }
+/**
+ * _strlen - find lenght of string
+ * @str: the string to be measured
+ * Return: the length of the string
+ */
+int _strlen(char *str)
+{
+	int len = 0;
+
+	while (*str++)
+		len++;
+
+	return (len);
+}
+
