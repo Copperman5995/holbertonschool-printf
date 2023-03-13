@@ -3,41 +3,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * printother - prints other passed chartaers
- * @i: used for a bolloen statment
- * @c1: the first charter to be printed
- * @c2: second charater to be pritned
- * Return: number of charaters printed
- */
-int printother(int i, char c1, char c2)
-{
-	if (i == -69)
-	{
-		_putchar(c1);
-		_putchar(c2);
-	}
-	return (2);
-}
-/**
  * get_convert_func - looks for the letter
  * @s: the thing that will be checked for the letter
- * @ap: the lsit they look through
  * Return: the right function to be used
  */
-int get_convert_func(char s, va_list ap)
+int (*get_convert_func(const char *s))(va_list)
 {
 	convert_t converter[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{"i", print_int},
 		{"d", print_dec}
+		{NULL, NULL}
 	};
 	int i = 0;
 
-	for (i = 0; i < 4; i++)
-		if (converter[i].letter[0] == s)
-			return (converter[i].f(ap));
-	return (-69);
+	while (converter[i].letter != NULL && converter[i].letter[0] != s[0])
+		i++;
+
+	return (converter[i].f);
 }
 /**
  * _printf - pritns things
@@ -47,6 +31,7 @@ int get_convert_func(char s, va_list ap)
 int _printf(const char *format, ...)
 {
 	va_list ap;
+	int (*f)(va_list);
 	unsigned int i = 0, counter = 0;
 	int bettyabword = 0;
 
