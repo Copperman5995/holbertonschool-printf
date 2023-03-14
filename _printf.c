@@ -13,7 +13,7 @@ int (*get_convert_func(const char *s))(va_list)
 		{"c", print_char},
 		{"s", print_string},
 		{"i", print_int},
-		{"d", print_dec},
+		{"d", print_int},
 		{NULL, NULL}
 	};
 	int i = 0;

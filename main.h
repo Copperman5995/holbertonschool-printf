@@ -25,6 +25,5 @@ int _strlen(char *str);
 int print_string(va_list s);
 int print_char(va_list c);
 int print_int(va_list n);
-int print_dec(va_list d);
 #endif
 

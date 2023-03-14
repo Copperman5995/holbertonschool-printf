@@ -23,12 +23,13 @@ int print_char(va_list c)
 int print_string(va_list s)
 {
 	char *str = va_arg(s, char *);
-	int len = _strlen(str);
+	int len;
 
 	if (str == NULL)
 	{
 		str = "(null)";
 	}
+	len = _strlen(str);
 	_puts(str);
 	return (len);
 }
@@ -40,26 +41,35 @@ int print_string(va_list s)
 int print_int(va_list n)
 {
 	int finalint[10];
-	int i = 1, j = 1000000000, k, sum = 0, counter = 0;
+	int i = 1, j = 1000000000, k, sum = 0, counter = 0, bool = 0;
 
 	k = va_arg(n, int);
-
+	if (k == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (k < 0)
 	{
+		if (k == -2147483648)
+		{
+			bool = 1;
+			k += 1;
+		}
 		k = k * -1;
 		_putchar('-');
 		counter++;
 	}
 	finalint[0] = k / j;
-
-	while (i < 10)
+	for (; i < 10 ; i++)
 	{
 		j = j / 10;
-		finalint[i] = (k / j) % 10;
-		i++;
+		if (bool == 1 && i == 9)
+			finalint[i] = ((k / j) % 10) + 1;
+		else
+			finalint[i] = (k / j) % 10;
 	}
-	i = 0;
-	while (i < 10)
+	for (i = 0 ; i < 10 ; i++)
 	{
 		sum = sum + finalint[i];
 		if (sum != 0 || j == 9)
@@ -67,49 +77,6 @@ int print_int(va_list n)
 			_putchar('0' + finalint[i]);
 			counter++;
 		}
-		i++;
-	}
-
-
-
-	return (counter);
-}
-/**
- * print_dec - print the dec passed in
- * @d: the list to pull from
- * Return: number of chars printed
- */
-int print_dec(va_list d)
-{
-	int finalint[10];
-	int i = 1, j = 1000000000, k, sum = 0, counter = 0;
-
-	k = va_arg(d, int);
-
-	if (k < 0)
-	{
-		k = k * -1;
-		_putchar('-');
-		counter++;
-	}
-	finalint[0] = k / j;
-
-	while (i < 10)
-	{
-		j = j / 10;
-		finalint[i] = (k / j) % 10;
-		i++;
-	}
-	i = 0;
-	while (i < 10)
-	{
-		sum = sum + finalint[i];
-		if (sum != 0 || j == 9)
-		{
-			_putchar('0' + finalint[i]);
-			counter++;
-		}
-		i++;
 	}
 	return (counter);
 }
