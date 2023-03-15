@@ -36,7 +36,6 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-
 	va_start(ap, format);
 	while (format && format[i])
 	{
@@ -44,26 +43,27 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[i]);
 			counter++;
-			i++;
-			continue;
 		}
 		else
 		{
 			if (format[i + 1] == '%')
 			{
-				_putchar('%');
-				counter++;
-				i += 2;
-				continue;
+				_putchar('%'), counter++;
+				i++;
 			}
 			else
 			{
+				if (format[i + 1] == 'c' || format[i + 1] == 's'
+						|| format[i + 1] == 'i' || format[i + 1] == 'd')
+				{
 				f = get_convert_func(&format[i + 1]);
 				if (f == NULL)
 					return (-1);
-				i += 2;
 				counter += f(ap);
-				continue;
+				}
+				else
+					_putchar('%'), _putchar(format[i + 1]), counter += 2;
+				i++;
 			}
 		}
 		i++;
